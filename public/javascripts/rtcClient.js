@@ -180,7 +180,7 @@ var Peer = function (pcConfig, pcConstraints) {
   if(!videoCreated)
   document.createElement('video');
   else
-  this.remoteVideoEl = $("video")[];
+  this.remoteVideoEl = $("video")[0];
 
   this.remoteVideoEl.controls = true;
   this.remoteVideoEl.autoplay = true;
