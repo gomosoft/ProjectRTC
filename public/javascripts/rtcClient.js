@@ -42,7 +42,6 @@ var PeerManager = (function () {
     };
     peer.pc.onaddstream = function(event) {
       attachMediaStream(peer.remoteVideoEl, event.stream);
-      if(!$("video"))
       remoteVideosContainer.appendChild(peer.remoteVideoEl);
     };
     peer.pc.onremovestream = function(event) {
@@ -177,10 +176,8 @@ var PeerManager = (function () {
 var Peer = function (pcConfig, pcConstraints) {
   this.pc = new RTCPeerConnection(pcConfig, pcConstraints);
   
-  if(!videoCreated)
-  {this.remoteVideoEl = document.createElement('video'); videoCreated = true;}
-  else
-  this.remoteVideoEl = $("video")[0];
+this.remoteVideoEl = document.createElement('video'); videoCreated = true;
+
 
   this.remoteVideoEl.controls = true;
   this.remoteVideoEl.autoplay = true;
