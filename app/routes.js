@@ -3,7 +3,7 @@ module.exports = function(app, streams) {
   // GET home 
   var index = function(req, res) {
     res.render('index', { 
-                          title: 'Project RTC', 
+                          title: 'Eyenation on Live', 
                           header: 'WebRTC live streaming',
                           username: 'Username',
                           share: 'Share this link',
