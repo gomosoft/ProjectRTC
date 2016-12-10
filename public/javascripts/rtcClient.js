@@ -1,4 +1,4 @@
-var videoCreated = null;
+var videoCreated = false;
 
 
 var PeerManager = (function () {
