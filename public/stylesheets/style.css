@@ -13,6 +13,7 @@ table, tr, td, th {margin: 0;border: 0;padding: 5px;border-collapse: collapse; c
 
 tr .user{
   color:white !important;
+  font-weight: normal !important;
 }
 
 h1, h2, h3, h4{color:white !important;}
