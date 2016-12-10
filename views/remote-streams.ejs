@@ -1,6 +1,6 @@
 <div  ng-controller="RemoteStreamsController as rtc" class="row">
 
-<div class="col-md-4">
+<div class="col-md-4" >
 
     <h1><img src="/cdn/images/eyelogo.png" width="250"></h1>
 
@@ -22,8 +22,20 @@
 	</table>
 <br>
 	<span ng-click="rtc.loadData()" style="width: 240px">
-        <a class="btn btn-primary btn-block" href>Refresh</a>
+        <a class="btn btn-primary btn-block" href>Refresh Streams</a>
     </span>
+    <br>
+    <br>
+    <br>
+<div style="border-top:1px dotted white; display: block;"></div>
+        <br>
+    <br>
+    <h4>Download the APP and Go live</h4>
+    <span ng-click="rtc.loadData()" style="width: 240px">
+        <a href="https://s3.amazonaws.com/jafid/app-debug-unaligned.apk" target="_blank" class="btn btn-warning btn-block" href>Get Android APP</a>
+    </span>
+
+    
 
     </div>
 

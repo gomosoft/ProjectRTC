@@ -15,7 +15,7 @@ tr .user{
   color:white !important;
 }
 
-h1, h2{color:white !important;}
+h1, h2, h3, h4{color:white !important;}
 
 li {
     list-style-type: none;
