@@ -11,8 +11,8 @@
         }
     };
 
-    var apiUri = "http://35.165.207.128:3000/";
-    var socketUri = "http://35.165.207.128:3000/";
+    var apiUri = "https://webrtcfast.herokuapp.com";
+    var socketUri = "http://webrtcfast.herokuapp.com";
 
 
     app.config(function($locationProvider){
