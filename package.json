@@ -1,15 +1,11 @@
 {
-  "name": "ProjectRTC",
+  "name": "Eyenationapp",
   "version": "0.4.0",
-  "author": "Pierre Chabardes <pierre@chabardes.net>",
+  "author": "Fastcode Lab",
   "description": "a webRTC live streaming server",
   "scripts": {
     "start": "forever start app.js",
     "stop": "forever stopall"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/pchab/ProjectRTC.git"
   },
   "dependencies": {
     "body-parser": "^1.12.2",
@@ -24,5 +20,18 @@
     "multer": "^0.1.8",
     "serve-favicon": "^2.2.0",
     "socket.io": "1.0"
+  },
+  "devDependencies": {
+    "browser-sync": "2.6.5",
+    "gulp-autoprefixer": "2.1.0",
+    "gulp-cache": "0.2.8",
+    "gulp-concat": "2.5.2",
+    "gulp-imagemin": "2.2.1",
+    "gulp-less": "3.0.3",
+    "gulp-minify-css": "1.0.0",
+    "gulp-plumber": "1.0.0",
+    "gulp-rename": "1.2.2",
+    "gulp-uglify": "1.2.0",
+    "gulp": "3.8.11"
   }
 }

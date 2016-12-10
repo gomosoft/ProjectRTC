@@ -1,0 +1,24 @@
+{
+  "name": "tesla",
+  "version": "1.7.0",
+  "authors": [
+    "Fastcode Lab"
+  ],
+  "description": "LiveEyenation",
+  "main": "index.html",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendors"
+  ],
+  "appPath": "911videos",
+  "dependencies": {
+    "angularjs": "latest",
+    "jquery": "latest",
+    "moment": "momentjs#^2.17.0",
+    "angular-ui-router": "ui-router#^0.3.2",
+    "bootstrap" : "latest"
+  }
+}

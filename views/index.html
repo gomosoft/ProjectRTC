@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html ng-app="liveStream" >
+   
+   <head>
+      <title>Eyenation Live</title>
+
+      <link rel="stylesheet" type="text/css" href="/cdn/styles/style.css" >
+      <link rel="stylesheet" type="text/css" href="/vendors/bootstrap/dist/css/bootstrap.min.css" >
+   </head>
+
+
+   <body ng-controller="mainCtrl as main" style="background-color: black">
+
+   <div id="container" class="container" >
+
+<div class="remoteStreams" ng-controller="RemoteStreamsController as rtc">
+
+ 
+ <div class="row">
+ <div id="remoteVideosContainer"></div>
+
+ </div>
+
+<div class="row">
+REMOTE
+	<table>
+    	<thead>
+    		<tr>
+        		<th>Stream</th><th>1-way</th>
+   			</tr>
+   		</thead>
+    	<tbody>
+    		<tr ng-repeat="stream in rtc.remoteStreams" ng-class="{'selected' : stream.isPlaying}">
+        		<td><a>{{stream.name}}</a></td>
+                <td ng-click="rtc.view(stream)"><a>View</a></td>
+    		</tr>
+		</tbody>
+	</table>
+
+	</div>
+</div>
+
+
+
+
+ 	
+   <script src="/vendors/angular/angular.min.js"></script>
+   <script src="/socket.io/socket.io.js"></script>
+
+  <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+	<script type="text/javascript" src="/cdn/javascripts/adapter.js"></script>
+	<script type="text/javascript" src="/cdn/javascripts/rtcClient.js"></script>
+	
+	
+	<script type="text/javascript" src="/cdn/javascripts/app.js"></script>
+
+
+   </body>
+</html>

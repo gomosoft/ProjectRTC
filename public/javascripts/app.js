@@ -1,5 +1,5 @@
 (function(){
-	var app = angular.module('projectRtc', [],
+	var app = angular.module('liveStream', [],
 		function($locationProvider){$locationProvider.html5Mode(true);}
     );
 	var client = new PeerManager();
@@ -10,6 +10,33 @@
 			optional: []
         }
     };
+
+    var apiUri = "http://localhost:3000/";
+    var socketUri = "http://35.165.207.128:3000/";
+
+
+    app.config(function($locationProvider){
+    	$locationProvider.html5Mode({
+		  enabled: true,
+		  requireBase: false
+		});
+    })
+
+    var socket;
+
+    app.run(function($rootScope){
+    	
+    	socket = io.connect(socketUri);
+    	socket.on("message", function(){
+    		//alert("hey")
+    	})
+
+    	socket.on("connect", function(){
+    		console.log('connected')
+    	})
+
+    })
+
 
     app.factory('camera', ['$rootScope', '$window', function($rootScope, $window){
     	var camera = {};
@@ -45,6 +72,25 @@
 		return camera;
     }]);
 
+
+    app.controller('mainCtrl', function($scope, $rootScope){
+
+    	if(!$rootScope.socket)
+    	{
+
+		$rootScope.socket = io.connect(socketUri);
+		    	$rootScope.socket.on("message", function(){
+		    		alert("hey")
+		    	})
+
+    	$rootScope.socket.on("connect", function(){
+    		console.log('')
+    	})
+
+    	}
+
+    })
+
 	app.controller('RemoteStreamsController', ['camera', '$location', '$http', function(camera, $location, $http){
 		var rtc = this;
 		rtc.remoteStreams = [];
@@ -53,9 +99,14 @@
 		    	if (rtc.remoteStreams[i].id === id) {return rtc.remoteStreams[i];}
 		    }
 		}
+
+		socket.on("stream::added", function(data){
+			remoteStreams.push(data);
+		})
+
 		rtc.loadData = function () {
 			// get list of streams from the server
-			$http.get('/streams.json').success(function(data){
+			$http.get(apiUri  + 'streams.json').success(function(data){
 				// filter own stream
 				var streams = data.filter(function(stream) {
 			      	return stream.id != client.getId();
