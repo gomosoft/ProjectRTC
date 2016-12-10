@@ -12,7 +12,7 @@
     };
 
     var apiUri = "https://webrtcfast.herokuapp.com/";
-    var socketUri = "http://webrtcfast.herokuapp.com";
+    var socketUri = "https://webrtcfast.herokuapp.com";
 
 
     app.config(function($locationProvider){
