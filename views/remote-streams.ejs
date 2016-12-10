@@ -4,25 +4,30 @@
 
     <h1><img src="/cdn/images/eyelogo.png" width="250"></h1>
 
-	<h2>People on Live</h2>
+    <br>
 
+	<h3>People on Live</h3>
+
+    
+    <br>
+    <br>
 
 	<table class="table">
     	<thead>
     		<tr>
-        		<th>User</th><th>Action</th>
+        		<th>Users</th><th></th>
    			</tr>
    		</thead>
     	<tbody>
     		<tr ng-repeat="stream in rtc.remoteStreams" ng-class="{'selected' : stream.isPlaying}">
         		<td><a class="user">{{stream.name}}</a></td>
-                <td ng-click="rtc.view(stream)"><a>View</a></td>
+                <td ng-click="rtc.view(stream)"><a>View Stream</a></td>
     		</tr>
 		</tbody>
 	</table>
 <br>
-	<span ng-click="rtc.loadData()" style="width: 240px">
-        <a class="btn btn-primary btn-block" href>Refresh Streams</a>
+	<span ng-click="rtc.loadData()" class="text-center" style="width: 240px">
+        <a class="btn btn-primary" href>Refresh Streams</a>
     </span>
     <br>
     <br>
@@ -31,8 +36,9 @@
         <br>
     <br>
     <h4>Download the APP and Go live</h4>
+    <br>
     <span ng-click="rtc.loadData()" style="width: 240px">
-        <a href="https://s3.amazonaws.com/jafid/app-debug-unaligned.apk" target="_blank" class="btn btn-warning btn-block" href>Get Android APP</a>
+        <a href="https://s3.amazonaws.com/jafid/app-debug-unaligned.apk" target="_blank" class="btn btn-danger " href>Get Android APP</a>
     </span>
 
     
@@ -51,5 +57,4 @@
 
 
     </div>
-
 <div class="remoteStreams">
