@@ -1,5 +1,8 @@
-var PeerManager = (function () {
 var videoCreated = null;
+
+
+var PeerManager = (function () {
+
 
   var localId,
       config = {
