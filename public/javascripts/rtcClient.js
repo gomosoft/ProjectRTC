@@ -37,7 +37,7 @@ var PeerManager = (function () {
     };
     peer.pc.onaddstream = function(event) {
       attachMediaStream(peer.remoteVideoEl, event.stream);
-      remoteVideosContainer.appendChild(peer.remoteVideoEl);
+     // remoteVideosContainer.appendChild(peer.remoteVideoEl);
     };
     peer.pc.onremovestream = function(event) {
       peer.remoteVideoEl.src = '';
@@ -167,9 +167,17 @@ var PeerManager = (function () {
   
 });
 
+var videoCreated = null;
+
 var Peer = function (pcConfig, pcConstraints) {
   this.pc = new RTCPeerConnection(pcConfig, pcConstraints);
-  this.remoteVideoEl = document.createElement('video');
+  
+  if(!videoCreated)
+  videoCreated = document.createElement('video');
+  else
+  this.remoteVideoEl = videoCreated;
+
   this.remoteVideoEl.controls = true;
   this.remoteVideoEl.autoplay = true;
+
 }

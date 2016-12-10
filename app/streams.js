@@ -11,6 +11,7 @@ module.exports = function() {
   var Stream = function(id, name) {
     this.name = name;
     this.id = id;
+    this.views = 0;
   }
 
   return {

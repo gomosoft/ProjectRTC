@@ -35,6 +35,8 @@
     		console.log('connected')
     	})
 
+
+
     })
 
 
@@ -111,6 +113,17 @@
 			rtc.loadData();
 		})
 
+		socket.on("stream::view", function(data){
+		
+			for(x in rtc.remoteStreams)
+				   if(data.id === rtc.remoteStreams[x].id)
+					   	 	rtc.remoteStreams[x].views++;
+			
+					   
+
+		});
+
+
 		rtc.loadData = function () {
 			// get list of streams from the server
 			$http.get(apiUri  + 'streams.json').success(function(data){
@@ -129,9 +142,13 @@
 		};
 
 		rtc.view = function(stream){
+
+			socket.emit('stream::view', stream);
 			client.peerInit(stream.id);
 			stream.isPlaying = !stream.isPlaying;
+
 		};
+
 		rtc.call = function(stream){
 			/* If json isn't loaded yet, construct a new stream 
 			 * This happens when you load <serverUrl>/<socketId> : 
