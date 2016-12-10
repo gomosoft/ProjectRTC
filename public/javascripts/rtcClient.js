@@ -9,7 +9,8 @@ var PeerManager = (function () {
         peerConnectionConfig: {
           iceServers: [
             {"url": "stun:23.21.150.121"},
-            {"url": "stun:stun.l.google.com:19302"}
+            {"url": "stun:stun.l.google.com:19302"},
+            {"url": "stun:stun.services.mozilla.com"}
           ]
         },
         peerConnectionConstraints: {
@@ -177,9 +178,9 @@ var Peer = function (pcConfig, pcConstraints) {
   this.pc = new RTCPeerConnection(pcConfig, pcConstraints);
   
   if(!videoCreated)
-  videoCreated = document.createElement('video');
+  document.createElement('video');
   else
-  this.remoteVideoEl = videoCreated;
+  this.remoteVideoEl = $("video")[];
 
   this.remoteVideoEl.controls = true;
   this.remoteVideoEl.autoplay = true;
