@@ -26,7 +26,7 @@
 
     app.run(function($rootScope){
     	
-    	socket = io.connect(socketUri);
+    	socket = io.connect(socketUri, {secure: true});
     	socket.on("message", function(){
     		//alert("hey")
     	})
