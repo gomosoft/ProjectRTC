@@ -1,4 +1,5 @@
 var PeerManager = (function () {
+var videoCreated = null;
 
   var localId,
       config = {
@@ -37,6 +38,7 @@ var PeerManager = (function () {
     };
     peer.pc.onaddstream = function(event) {
       attachMediaStream(peer.remoteVideoEl, event.stream);
+      if(!videoCreated)
       remoteVideosContainer.appendChild(peer.remoteVideoEl);
     };
     peer.pc.onremovestream = function(event) {
@@ -167,7 +169,6 @@ var PeerManager = (function () {
   
 });
 
-var videoCreated = null;
 
 var Peer = function (pcConfig, pcConstraints) {
   this.pc = new RTCPeerConnection(pcConfig, pcConstraints);
@@ -179,5 +180,5 @@ var Peer = function (pcConfig, pcConstraints) {
 
   this.remoteVideoEl.controls = true;
   this.remoteVideoEl.autoplay = true;
-  
+
 }
