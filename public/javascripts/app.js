@@ -11,7 +11,7 @@
         }
     };
 
-    var apiUri = "http://localhost:3000/";
+    var apiUri = "http://35.165.207.128:3000/";
     var socketUri = "http://35.165.207.128:3000/";
 
 
