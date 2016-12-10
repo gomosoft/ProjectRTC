@@ -4,7 +4,7 @@ module.exports = function(app, streams) {
   var index = function(req, res) {
     res.render('index', { 
                           title: 'Eyenation on Live', 
-                          header: 'WebRTC live streaming',
+                          header: '',
                           username: 'Username',
                           share: 'Share this link',
                           footer: '',

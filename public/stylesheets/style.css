@@ -11,6 +11,10 @@ a {
 
 table, tr, td, th {margin: 0;border: 0;padding: 5px;border-collapse: collapse; color:white;}
 
+tr .user{
+  color:white !important;
+}
+
 h1, h2{color:white !important;}
 
 li {
