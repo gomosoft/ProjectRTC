@@ -42,7 +42,7 @@ var PeerManager = (function () {
     };
     peer.pc.onaddstream = function(event) {
       attachMediaStream(peer.remoteVideoEl, event.stream);
-      if($("video").length === 0)
+      if(!$("video"))
       remoteVideosContainer.appendChild(peer.remoteVideoEl);
     };
     peer.pc.onremovestream = function(event) {
