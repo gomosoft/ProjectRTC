@@ -22,7 +22,7 @@
 		});
     })
 
-    var socket;
+   window.socket;
 
     app.run(function($rootScope){
     	
