@@ -103,7 +103,7 @@
 
 		socket.on("stream::added", function(data){
 			console.log("added");
-			rtc.remoteStreams.push(data);
+			rtc.loadData();
 		})
 
 		socket.on("stream::left", function(data){
