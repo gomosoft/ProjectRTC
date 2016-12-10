@@ -41,7 +41,7 @@
     app.factory('camera', ['$rootScope', '$window', function($rootScope, $window){
     	var camera = {};
     	camera.preview = $window.document.getElementById('localVideo');
-
+   /*
     	camera.start = function(){
 			return requestUserMedia(mediaConfig)
 			.then(function(stream){			
@@ -52,6 +52,8 @@
 			})
 			.catch(Error('Failed to get access to local media.'));
 		};
+
+		*/
     	camera.stop = function(){
     		return new Promise(function(resolve, reject){			
 				try {
@@ -101,6 +103,7 @@
 		}
 
 		socket.on("stream::added", function(data){
+			alert("added");
 			remoteStreams.push(data);
 		})
 
@@ -160,7 +163,7 @@
 		};
 
 		//initial load
-		rtc.loadData();
+		//rtc.loadData();
     	if($location.url() != '/'){
       		rtc.call($location.url().slice(1));
     	};
