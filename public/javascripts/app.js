@@ -11,7 +11,7 @@
         }
     };
 
-    var apiUri = "https://webrtcfast.herokuapp.com";
+    var apiUri = "https://webrtcfast.herokuapp.com/";
     var socketUri = "http://webrtcfast.herokuapp.com";
 
 
