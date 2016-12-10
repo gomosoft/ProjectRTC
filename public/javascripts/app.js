@@ -82,7 +82,6 @@
 
 		$rootScope.socket = io.connect(socketUri);
 		    	$rootScope.socket.on("message", function(){
-		    		alert("hey")
 		    	})
 
     	$rootScope.socket.on("connect", function(){
@@ -103,8 +102,13 @@
 		}
 
 		socket.on("stream::added", function(data){
-			alert("added");
-			remoteStreams.push(data);
+			console.log("added");
+			rtc.remoteStreams.push(data);
+		})
+
+		socket.on("stream::left", function(data){
+			console.log("added");
+			rtc.loadData();
 		})
 
 		rtc.loadData = function () {
