@@ -23,8 +23,12 @@ video{
   height: 250px;
   display: block;
   float: left;
-
+  bordder:2px solid white;
   margin: 7px 8px;
+}
+
+.selected{
+  background: #333;
 }
 
 
