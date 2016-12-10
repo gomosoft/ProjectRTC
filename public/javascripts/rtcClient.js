@@ -178,7 +178,7 @@ var Peer = function (pcConfig, pcConstraints) {
   this.pc = new RTCPeerConnection(pcConfig, pcConstraints);
   
   if(!videoCreated)
-  document.createElement('video');
+  {this.remoteVideoEl = document.createElement('video'); videoCreated = true;}
   else
   this.remoteVideoEl = $("video")[0];
 
