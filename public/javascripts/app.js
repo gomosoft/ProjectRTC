@@ -163,7 +163,7 @@
 		};
 
 		//initial load
-		//rtc.loadData();
+		rtc.loadData();
     	if($location.url() != '/'){
       		rtc.call($location.url().slice(1));
     	};
