@@ -114,6 +114,10 @@
 		})
 
 		socket.on("stream::view", function(data){
+
+			console.log("increasing viewers");
+
+			console.log(data);
 		
 			for(x in rtc.remoteStreams)
 				   if(data.id === rtc.remoteStreams[x].id)
