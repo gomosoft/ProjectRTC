@@ -11,9 +11,6 @@ var favicon = require('serve-favicon')
 ,	bodyParser = require('body-parser')
 ,	errorHandler = require('errorhandler');
 
-var cors = require('cors');
-
-
 var app = express();
 
 // all environments
@@ -32,8 +29,6 @@ app.use('/vendors',express.static(path.join(__dirname, 'bower_components')));
 if ('development' == app.get('env')) {
   app.use(errorHandler());
 }
- 
- app.use(cors);
 
 // routing
 require('./app/routes.js')(app, streams);

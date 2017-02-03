@@ -22,9 +22,6 @@ module.exports = function(app, streams) {
   };
 
 
-var cors = require('cors');
- app.use(cors);
-
   app.get('/streams.json', displayStreams);
   app.get('/', index);
   app.get('/:id', index);
