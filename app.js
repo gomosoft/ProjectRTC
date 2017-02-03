@@ -30,6 +30,18 @@ if ('development' == app.get('env')) {
   app.use(errorHandler());
 }
 
+ app.use(function(req, res, next) {
+
+    console.log(req);
+
+  if (req.method === 'OPTIONS') {
+    return res.send(200);
+  } else {
+    return next();
+  }
+
+});
+
 var cors = require('cors');
 app.use(cors);
 
