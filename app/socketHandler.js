@@ -78,6 +78,12 @@ var sys = require('sys'),
 
     });
 
+     client.on('streams::list', function() {
+      
+      client.broadcast.emit('streams::list', streams.getStreams);
+
+    });
+
     client.on('stream::view', function(options){
 
         for(x in streams.streamList)
