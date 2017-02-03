@@ -32,10 +32,12 @@ var sys = require('sys'),
         }
        
         delete data.to;
-        data.from = client.id;
+        data.from = client.id; 
 
 /*
         var fileName = uuid.v4();
+
+        //some
         
         client.emit('ffmpeg-output', 0);
 
@@ -75,12 +77,6 @@ var sys = require('sys'),
     client.on('update', function(options) {
       streams.update(client.id, options.name);
       client.broadcast.emit('stream::upated', {id:client.id, name: options.name});
-
-    });
-
-     client.on('streams::list', function() {
-      
-      client.broadcast.emit('streams::list', streams.getStreams);
 
     });
 
