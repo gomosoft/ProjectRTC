@@ -18,17 +18,6 @@ app.set('port', process.env.PORT || 9090);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 //app.use(favicon(__dirname + '/public/images/favicon.ico'));
-
- app.use(function(req, res, next) {
-
-   res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Methods', 'GET,HEAD,PUT,PATCH,POST,DELETE');
-    res.header('Access-Control-Allow-Headers', 'Accept, Authorization, Content-Type, X-Requested-With, Range, Pragma, Cache-Control');
-
-
- 
-
-
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -41,7 +30,14 @@ if ('development' == app.get('env')) {
   app.use(errorHandler());
 }
 
-   console.log(req);
+ app.use(function(req, res, next) {
+
+   res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET,HEAD,PUT,PATCH,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', '*');
+
+
+    console.log(req);
 
   if (req.method === 'OPTIONS') {
     return res.send(200);
@@ -50,6 +46,9 @@ if ('development' == app.get('env')) {
   }
 
 });
+
+var cors = require('cors');
+app.use(cors);
 
 
 // routing
