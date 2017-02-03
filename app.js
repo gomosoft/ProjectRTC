@@ -36,8 +36,6 @@ app.set('view engine', 'ejs');
 
 });
 
-var cors = require('cors');
-app.use(cors);
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
