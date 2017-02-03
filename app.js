@@ -11,7 +11,8 @@ var favicon = require('serve-favicon')
 ,	bodyParser = require('body-parser')
 ,	errorHandler = require('errorhandler');
 
-var cors = require('cors')
+var cors = require('cors');
+
 
 var app = express();
 
