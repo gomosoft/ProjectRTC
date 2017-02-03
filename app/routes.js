@@ -21,7 +21,15 @@ module.exports = function(app, streams) {
     res.status(200).json(data);
   };
 
+  app.use(function(req, res, next) {
 
+  if (req.method === 'OPTIONS') {
+    return res.send(200);
+  } else {
+    return next();
+  }
+
+});
 
 
 
