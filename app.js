@@ -26,15 +26,7 @@ app.set('view engine', 'ejs');
     res.header('Access-Control-Allow-Headers', 'Accept, Authorization, Content-Type, X-Requested-With, Range, Pragma, Cache-Control');
 
 
-    console.log(req);
-
-  if (req.method === 'OPTIONS') {
-    return res.send(200);
-  } else {
-    return next();
-  }
-
-});
+ 
 
 
 app.use(logger('dev'));
@@ -49,7 +41,15 @@ if ('development' == app.get('env')) {
   app.use(errorHandler());
 }
 
+   console.log(req);
 
+  if (req.method === 'OPTIONS') {
+    return res.send(200);
+  } else {
+    return next();
+  }
+
+});
 
 
 // routing
