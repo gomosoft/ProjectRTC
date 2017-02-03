@@ -18,17 +18,6 @@ app.set('port', process.env.PORT || 9090);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 //app.use(favicon(__dirname + '/public/images/favicon.ico'));
-app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(methodOverride());
-app.use('/cdn', express.static(path.join(__dirname, 'public')));
-app.use('/vendors',express.static(path.join(__dirname, 'bower_components')));
-
-// development only
-if ('development' == app.get('env')) {
-  app.use(errorHandler());
-}
 
  app.use(function(req, res, next) {
 
@@ -47,6 +36,20 @@ if ('development' == app.get('env')) {
 
 var cors = require('cors');
 app.use(cors);
+
+app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(methodOverride());
+app.use('/cdn', express.static(path.join(__dirname, 'public')));
+app.use('/vendors',express.static(path.join(__dirname, 'bower_components')));
+
+// development only
+if ('development' == app.get('env')) {
+  app.use(errorHandler());
+}
+
+
 
 
 // routing
