@@ -21,6 +21,12 @@ module.exports = function(app, streams) {
     res.status(200).json(data);
   };
 
+ app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+  });
+
   app.get('/streams.json', displayStreams);
   app.get('/', index);
   app.get('/:id', index);

@@ -32,6 +32,8 @@
     "gulp-plumber": "1.0.0",
     "gulp-rename": "1.2.2",
     "gulp-uglify": "1.2.0",
-    "gulp": "3.8.11"
+    "gulp": "3.8.11",
+    "fluent-ffmpeg": "^1.7.2",
+    "node-uuid": "^1.4.1"
   }
 }
