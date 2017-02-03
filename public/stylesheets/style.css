@@ -12,11 +12,11 @@ a {
 table, tr, td, th {margin: 0;border: 0;padding: 5px;border-collapse: collapse; color:white;}
 
 tr .user{
-  color:white !important;
+  color:black!important;
   font-weight: normal !important;
 }
 
-h1, h2, h3, h4{color:white !important;}
+h1, h2, h3, h4{color:black!important;}
 
 video{
   width: 300px;
