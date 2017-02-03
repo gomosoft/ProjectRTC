@@ -14,7 +14,7 @@ var favicon = require('serve-favicon')
 var app = express();
 
 // all environments
-app.set('port', process.env.PORT || 9090);
+app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 //app.use(favicon(__dirname + '/public/images/favicon.ico'));
@@ -30,23 +30,18 @@ if ('development' == app.get('env')) {
   app.use(errorHandler());
 }
 
- app.use(function(req, res, next) {
-
-   res.header('Access-Control-Allow-Origin', '*');
+app.use(function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', req.get('Origin') || '*');
+  res.header('Access-Control-Allow-Credentials', 'true');
   res.header('Access-Control-Allow-Methods', 'GET,HEAD,PUT,PATCH,POST,DELETE');
-    res.header('Access-Control-Allow-Headers', '*');
-
-
-    console.log(req);
-
+  res.header('Access-Control-Expose-Headers', 'Content-Length');
+  res.header('Access-Control-Allow-Headers', 'Accept, Authorization, Content-Type, X-Requested-With, Range, Pragma');
   if (req.method === 'OPTIONS') {
     return res.send(200);
   } else {
     return next();
   }
-
 });
-
 
 // routing
 require('./app/routes.js')(app, streams);
