@@ -11,6 +11,8 @@ var favicon = require('serve-favicon')
 ,	bodyParser = require('body-parser')
 ,	errorHandler = require('errorhandler');
 
+var cors = require('cors')
+
 var app = express();
 
 // all environments
@@ -30,14 +32,7 @@ if ('development' == app.get('env')) {
   app.use(errorHandler());
 }
  
- app.use(function(req, res, next) {
-  
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
-
-  next();
-  });
+ app.use(cors);
 
 // routing
 require('./app/routes.js')(app, streams);
