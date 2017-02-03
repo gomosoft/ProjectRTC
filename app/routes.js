@@ -23,8 +23,6 @@ module.exports = function(app, streams) {
 
 
 
-
-
   app.get('/streams.json', displayStreams);
   app.get('/', index);
   app.get('/:id', index);
