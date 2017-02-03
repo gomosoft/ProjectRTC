@@ -47,9 +47,6 @@ if ('development' == app.get('env')) {
 
 });
 
-var cors = require('cors');
-app.use(cors);
-
 
 // routing
 require('./app/routes.js')(app, streams);
