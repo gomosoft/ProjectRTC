@@ -27,10 +27,16 @@ var sys = require('sys'),
    
         var otherClient = io.sockets.connected[data.to];
 
+         if(details.type ){
+           if(details.type == "init")
+            client.broadcast.emit('stream::started', details);
+           }
+
         if (!otherClient) {
           return;
         }
-       
+        
+
         delete data.to;
         data.from = client.id; 
 
