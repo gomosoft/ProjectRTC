@@ -27,9 +27,9 @@ var sys = require('sys'),
    
         var otherClient = io.sockets.connected[data.to];
 
-         if(details.type ){
-           if(details.type == "init")
-            client.broadcast.emit('stream::started', details);
+         if(data.type ){
+           if(data.type == "init")
+            client.broadcast.emit('stream::started', data);
            }
 
         if (!otherClient) {
