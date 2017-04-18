@@ -28,8 +28,18 @@ var sys = require('sys'),
         var otherClient = io.sockets.connected[data.to];
 
          if(data.type ){
-           if(data.type == "init")
-            client.broadcast.emit('stream::started', data);
+           
+
+            if(data.type == "stream::start")
+             client.broadcast.emit('stream::started', data);
+
+            if(data.type == "stream::end")
+              client.broadcast.emit('stream::end', data);
+
+            if(data.type == "stream::save")
+              client.broadcast.emit('stream::save', data);
+           
+
            }
 
         if (!otherClient) {
