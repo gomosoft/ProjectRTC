@@ -30,8 +30,8 @@ var sys = require('sys'),
          if(data.type ){
            
 
-            if(data.type == "stream::start")
-             client.broadcast.emit('stream::started', data);
+            if(data.type == "stream::started")
+             client.broadcast.emit('stream::start', data);
 
             if(data.type == "stream::end")
               client.broadcast.emit('stream::end', data);
