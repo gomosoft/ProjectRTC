@@ -15,7 +15,7 @@ var app = express();
 
 function allowCors(req, res, next) {
  
-  res.setHeader('Access-Control-Allow-Origin', "http://"+req.headers.host+':3000');
+  res.setHeader('Access-Control-Allow-Origin', req.get('Origin'));
   res.header('Access-Control-Allow-Credentials', 'true');
   res.header('Access-Control-Allow-Methods', 'GET,HEAD,PUT,PATCH,POST,DELETE');
   res.header('Access-Control-Expose-Headers', 'Content-Length');
