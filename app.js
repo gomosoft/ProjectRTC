@@ -15,7 +15,7 @@ var app = express();
 
 function allowCors(req, res, next) {
  
-  res.header('Access-Control-Allow-Origin', 'http://ec2-34-208-118-56.us-west-2.compute.amazonaws.com:3000');
+  res.header('Access-Control-Allow-Origin', 'http://ec2-34-208-118-56.us-west-2.compute.amazonaws.com');
   res.header('Access-Control-Allow-Credentials', 'true');
   res.header('Access-Control-Allow-Methods', 'GET,HEAD,PUT,PATCH,POST,DELETE');
   res.header('Access-Control-Expose-Headers', 'Content-Length');
