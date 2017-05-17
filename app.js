@@ -26,7 +26,6 @@ function allowCors(req, res, next) {
   }
 }
 
-app.use(allowCors);
 
 // all environments
 app.set('port', process.env.PORT || 9090);
@@ -39,6 +38,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride());
 app.use('/cdn', express.static(path.join(__dirname, 'public')));
 app.use('/vendors',express.static(path.join(__dirname, 'bower_components')));
+app.use(allowCors);
+
 
 // development only
 if ('development' == app.get('env')) {

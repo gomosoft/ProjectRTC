@@ -14,6 +14,7 @@ var sys = require('sys'),
     uuid = require('node-uuid')
     ;
 
+  io.set('origins', '*:*');
 
 
   io.on('connection', function(client) {
