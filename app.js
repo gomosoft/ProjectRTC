@@ -14,16 +14,19 @@ var favicon = require('serve-favicon')
 var app = express();
 
 function allowCors(req, res, next) {
-  res.header('Access-Control-Allow-Origin', '*');
+ 
+  res.header('Access-Control-Allow-Origin', 'http://ec2-34-208-118-56.us-west-2.compute.amazonaws.com:3000');
   res.header('Access-Control-Allow-Credentials', 'true');
   res.header('Access-Control-Allow-Methods', 'GET,HEAD,PUT,PATCH,POST,DELETE');
   res.header('Access-Control-Expose-Headers', 'Content-Length');
   res.header('Access-Control-Allow-Headers', 'Accept, Authorization, Content-Type, X-Requested-With, Range, Pragma, Cache-Control, If-Modified-Since');
+  
   if (req.method === 'OPTIONS') {
     return res.send(200);
   } else {
     return next();
   }
+
 }
 
 
@@ -32,13 +35,13 @@ app.set('port', process.env.PORT || 9090);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 //app.use(favicon(__dirname + '/public/images/favicon.ico'));
+app.use(allowCors);
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride());
 app.use('/cdn', express.static(path.join(__dirname, 'public')));
 app.use('/vendors',express.static(path.join(__dirname, 'bower_components')));
-app.use(allowCors);
 
 
 // development only
