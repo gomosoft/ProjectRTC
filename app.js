@@ -58,7 +58,7 @@ var server = app.listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
 
-var io = require('socket.io').listen(server);
+var io = require('socket.io').listen(server, '0.0.0.0');
 /**
  * Socket.io event handling
  */
