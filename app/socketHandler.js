@@ -42,7 +42,10 @@ var sys = require('sys'),
 
             if(data.type == "stream::save")
               client.broadcast.emit('stream::save', data);
-           
+            
+              if(data.type == "stream::saved")
+              client.broadcast.emit('stream::saved', data);
+              
 
            }
 
