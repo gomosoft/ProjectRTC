@@ -37,16 +37,24 @@ var sys = require('sys'),
               client.broadcast.emit('stream::start', data);
              }
 
-            if(data.type == "stream::end")
+              if(data.type == "stream::end")
               client.broadcast.emit('stream::end', data);
 
-            if(data.type == "stream::save")
+              if(data.type == "stream::save")
               client.broadcast.emit('stream::save', data);
             
               if(data.type == "stream::saved")
               client.broadcast.emit('stream::saved', data);
+
+              if(data.type == "rtmp::start")
+              client.broadcast.emit('rtmp::start', data);
+
+              if(data.type == "rtmp::end")
+              client.broadcast.emit('rtmp::end', data);
               
 
+           }else{
+               client.broadcast.emit('message', data);
            }
 
         if (!otherClient) {
