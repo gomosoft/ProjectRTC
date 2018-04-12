@@ -51,6 +51,9 @@ var sys = require('sys'),
 
               if(data.type == "rtmp::end")
               client.broadcast.emit('rtmp::end', data);
+
+              if(data.type == "event::bid")
+              client.broadcast.emit('event::bid', data);
               
 
            }else{
