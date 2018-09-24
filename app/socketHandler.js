@@ -54,6 +54,14 @@ var sys = require('sys'),
 
               if(data.type == "event::bid")
               client.broadcast.emit('event::bid', data);
+
+              if(data.type == "stream::converted_video_in_core"){
+              
+              console.log("YEYYYYY");
+              client.broadcast.emit('stream::converted_video_in_core', data);
+
+                }
+
               
 
            }else{
