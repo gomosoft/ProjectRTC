@@ -2,9 +2,6 @@ module.exports = function(io, streams, views) {
    
 
     
-
-
-
 var sys = require('sys'),
     path = require('path'),
     exec = require('child_process').exec
@@ -60,7 +57,7 @@ var sys = require('sys'),
 
               if(data.type == "stream::live_changed")
               client.broadcast.emit('stream::live_changed', data);
-              
+
 
               if(data.type == "stream::converted_video_in_core"){
               
