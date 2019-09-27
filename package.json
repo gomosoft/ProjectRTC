@@ -4,8 +4,8 @@
   "author": "Fastcode Lab",
   "description": "a webRTC live streaming server",
   "scripts": {
-    "start": "forever start app.js",
-    "stop": "forever stopall"
+    "start": "pm2 start app.js -i max --name webrtc",
+    "stop": "pm2 stop webrtc"
   },
   "dependencies": {
     "body-parser": "^1.12.2",
