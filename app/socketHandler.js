@@ -5,49 +5,70 @@ module.exports = function(io, streams, views) {
 
 
 
-  var sys = require('sys'),
-      path = require('path'),
-      exec = require('child_process').exec
-      url = require("url"),
-      path = require("path"),
-      fs = require("fs"),
-      uuid = require('node-uuid')
-      ;
-  
-  //  io.set('origins', '*:*');
-  
-  
-    io.on('connection', function(client) {
-      console.log('-- ' + client.id + ' joined --');
-      client.emit('id', client.id);
-  
-      client.on('message', function (data) {
-  
-  
-        console.log(data);
-     
-          var otherClient = io.sockets.connected[data.to];
-  
-           if(data.type ){
-             
-  
-              if(data.type == "stream::started")
-               {
-                data.type = "stream::start"; 
-                client.broadcast.emit('stream::start', data);
-               }
-  
-                if(data.type == "stream::end")
-                client.broadcast.emit('stream::end', data);
-  
-                if(data.type == "stream::live_change")
-                client.broadcast.emit('stream::live_change', data);
-  
-                if(data.type == "stream::live_changed")
-                client.broadcast.emit('stream::live_changed', data);
-  
-                if(data.type == "stream::save")
-                client.broadcast.emit('stream::save', data);
+var sys = require('sys'),
+    path = require('path'),
+    exec = require('child_process').exec
+    url = require("url"),
+    path = require("path"),
+    fs = require("fs"),
+    uuid = require('node-uuid')
+    ;
+
+//  io.set('origins', '*:*');
+
+
+  io.on('connection', function(client) {
+    console.log('-- ' + client.id + ' joined --');
+    client.emit('id', client.id);
+
+    client.on('message', function (data) {
+
+
+      console.log(data);
+   
+        var otherClient = io.sockets.connected[data.to];
+
+         if(data.type ){
+           
+
+            if(data.type == "stream::started")
+             {
+              data.type = "stream::start"; 
+              client.broadcast.emit('stream::start', data);
+             }
+
+              if(data.type == "stream::end")
+              client.broadcast.emit('stream::end', data);
+
+              if(data.type == "stream::save")
+              client.broadcast.emit('stream::save', data);
+            
+              if(data.type == "stream::saved")
+              client.broadcast.emit('stream::saved', data);
+
+              if(data.type == "rtmp::start")
+              client.broadcast.emit('rtmp::start', data);
+
+              if(data.type == "rtmp::end")
+              client.broadcast.emit('rtmp::end', data);
+
+              if(data.type == "event::bid")
+              client.broadcast.emit('event::bid', data);
+
+              if(data.type == "stream::live_change")
+              client.broadcast.emit('stream::live_change', data);
+
+              if(data.type == "stream::live_changed")
+              client.broadcast.emit('stream::live_changed', data);
+              
+
+              if(data.type == "stream::converted_video_in_core"){
+              
+              console.log("YEYYYYY");
+              client.broadcast.emit('stream::converted_video_in_core', data);
+
+                }
+
               
                 if(data.type == "stream::saved")
                 client.broadcast.emit('stream::saved', data);
