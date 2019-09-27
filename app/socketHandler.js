@@ -55,6 +55,13 @@ var sys = require('sys'),
               if(data.type == "event::bid")
               client.broadcast.emit('event::bid', data);
 
+              if(data.type == "stream::live_change")
+              client.broadcast.emit('stream::live_change', data);
+
+              if(data.type == "stream::live_changed")
+              client.broadcast.emit('stream::live_changed', data);
+
+
               if(data.type == "stream::converted_video_in_core"){
               
               console.log("YEYYYYY");
